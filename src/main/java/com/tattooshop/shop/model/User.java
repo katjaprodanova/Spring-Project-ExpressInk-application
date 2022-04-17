@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
 public class User {
 
     @Id
@@ -25,6 +25,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Favorites> favorites;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<ScheduledTattoos> scheduledTattoos;
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
