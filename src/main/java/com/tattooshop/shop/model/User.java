@@ -1,15 +1,19 @@
 package com.tattooshop.shop.model;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Data
 @Entity
 //@Table(name = "users")
-public class User {
+public class User implements UserDetails {
 
     @Id
     private String username;
@@ -32,6 +36,11 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
+    private boolean isAccountNonExpired = true;
+    private boolean isAccountNonLocked = true;
+    private boolean isCredentialsNonExpired = true;
+    private boolean isEnabled = true;
+
 
     public User() {
     }
@@ -45,5 +54,30 @@ public class User {
         this.role = role;
         this.tattoosMade = new ArrayList<>();
         this.favorites = new ArrayList<>();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(role);
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return isAccountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return isAccountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return isCredentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isEnabled;
     }
 }
