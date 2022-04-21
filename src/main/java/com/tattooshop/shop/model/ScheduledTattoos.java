@@ -14,20 +14,20 @@ public class ScheduledTattoos {
     @Id
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     private User user;
 
-    @ManyToMany
-    private List<Tattoo> scheduledTattoos;
+    @OneToMany
+    private List<Tattoo> selectedTattoos;
 
     private LocalDateTime dateTime;
 
     public ScheduledTattoos() {
     }
 
-    public ScheduledTattoos(User user, List<Tattoo> scheduledTattoos, LocalDateTime dateTime) {
+    public ScheduledTattoos(User user, LocalDateTime dateTime) {
         this.user = user;
-        this.scheduledTattoos = new ArrayList<>();
+        this.selectedTattoos = new ArrayList<>();
         this.dateTime = dateTime;
     }
 }

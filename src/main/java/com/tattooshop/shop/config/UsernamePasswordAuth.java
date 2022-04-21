@@ -1,4 +1,3 @@
-/*
 package com.tattooshop.shop.config;
 
 import com.tattooshop.shop.service.UserService;
@@ -47,4 +46,3 @@ public class UsernamePasswordAuth implements AuthenticationProvider {
         return aClass.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
-*/

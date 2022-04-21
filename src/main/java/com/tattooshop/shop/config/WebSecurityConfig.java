@@ -1,4 +1,3 @@
-/*
 package com.tattooshop.shop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +65,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 }
-*/

@@ -1,0 +1,25 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+
+    <br>
+    <h2> Log in here : </h2>
+
+
+    <form method="post" action="/login">
+        <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required=""
+                   autofocus="">
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password"
+                   required="">
+        </p>
+
+        <div th:text="${param.error}" class="text-danger"></div>
+
+        <button id="submit" class="btn btn-lg btn-dark btn-block" type="submit">
+            <i class="fa-regular fa-circle-check"></i>  Log in</button>
+    </form>
+
+</div>

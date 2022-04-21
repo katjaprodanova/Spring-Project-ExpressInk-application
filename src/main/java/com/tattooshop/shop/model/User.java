@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
-//@Table(name = "users")
+@Table(name = "tattoo_users")
 public class User implements UserDetails {
 
     @Id
@@ -27,11 +27,11 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
     private List<Tattoo> tattoosMade;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Favorites> favorites;
+   /* @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Favorites> favorites;*/
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<ScheduledTattoos> scheduledTattoos;
+   /* @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<ScheduledTattoos> scheduledTattoos;*/
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
@@ -53,7 +53,7 @@ public class User implements UserDetails {
         this.surname = surname;
         this.role = role;
         this.tattoosMade = new ArrayList<>();
-        this.favorites = new ArrayList<>();
+        //this.favorites = new ArrayList<>();
     }
 
     @Override

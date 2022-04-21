@@ -7,9 +7,9 @@ import java.util.List;
 
 
 public interface CategoryService {
-    Category create(String name, String description);
+    Category create(String name);
 
-    Category update(String name, String description);
+    Category edit(Long id,String name);
 
     void delete(String name);
 

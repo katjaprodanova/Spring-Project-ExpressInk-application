@@ -10,13 +10,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item m-auto">
-                        <a class="nav-link active" href="/products">Products</a>
+                        <a class="nav-link active" href="/tattoos">Products</a>
                     </li>
                     <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a class="nav-link active" href="/servlet/thymeleaf/category">Categories</a>
+                        <a class="nav-link active" href="/categories">Categories</a>
                     </li>
                     <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a class="nav-link active" href="/manufacturers">Manufacturers</a>
+                        <a class="nav-link active" href="/scheduled">Scheduled</a>
                     </li>
                 </ul>
 
@@ -25,7 +25,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control" aria-label="Small"
                                aria-describedby="inputGroup-sizing-sm"
-                               placeholder="Search...">
+                               placeholder="Search for a tattoo...">
                         <div class="input-group-append">
                             <button type="button" class="btn btn-secondary btn-number">
                                 <i class="fa fa-search"></i>
@@ -41,22 +41,22 @@
                                       th:text="${#request.getRemoteUser()}"></th:block>
                         </a>
                     </li>
-                    <li class="nav-item" sec:authorize="isAuthenticated()">
-                        <a class="btn btn-sm ml-3" href="/shopping-cart" style="background: #edabb3; border: 1px solid #7a1521">
-                            <i class="fa-solid fa-calendar-circle-user" style="color: mediumvioletred"></i> Scheduled
+                    <li class="nav-item" >
+                        <a class="btn btn-sm ml-3" sec:authorize="isAuthenticated()" href="/shopping-cart" style="background: #edabb3; color: darkred; border: 1px solid #7a1521">
+                            <i class="fa-solid fa-calendar-day" style="color: mediumvioletred"></i>  Scheduled
                         </a>
                     </li>
-                    <li class="nav-item" sec:authorize="isAuthenticated()">
-                        <a class="btn btn-light btn-sm ml-3" href="/favorites" style="background: #edabb3; border: 1px solid #7a1521">
+                    <li class="nav-item" >
+                        <a class="btn btn-light btn-sm ml-3" sec:authorize="isAuthenticated()" href="/favorites" style="background: #edabb3; color: darkred; border: 1px solid #7a1521">
                             <i class="fa-solid fa-heart" style="color: mediumvioletred"></i>  Favorites
                         </a>
                     </li>
-                    <li class="nav-item" sec:authorize="isAuthenticated()">
-                        <a class="btn btn-light btn-sm ml-3" href="/logout" style="background: #edabb3; border: 1px solid #7a1521">
-                            <i class="fa-solid fa-arrow-up-left-from-circle " style="color: mediumvioletred"></i> Logout
+                    <li class="nav-item" >
+                        <a class="btn btn-light btn-sm ml-3" href="/logout" sec:authorize="isAuthenticated()" style="background: darkred; color: aliceblue; border: 1px solid #7a1521">
+                            <i class="fa-solid fa-arrow-right-to-bracket" style="color: navajowhite" ></i> Logout
                         </a>
                     </li>
-                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <li class="nav-item" >
                         <a class="btn btn-light btn-sm ml-3" href="/login">
                             <i class="fa-solid fa-right-from-bracket" style="color: mediumvioletred"></i> Login
                         </a>
