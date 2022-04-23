@@ -28,22 +28,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/assets/**", "/register", "/products", "/api/**").permitAll()
+                .antMatchers("/", "/loginn", "/home", "/assets/**", "/register", "/products", "/api/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
+                .loginPage("/loginn").permitAll()
                 .failureUrl("/login?error=BadCredentials")
-                .defaultSuccessUrl("/products", true)
+                .defaultSuccessUrl("/tattoos", true)
                 .and()
                 .logout()
-                .logoutUrl("/logout")
+                .logoutUrl("/logoutt")
                 .clearAuthentication(true)
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/logoutt/success")
                 .and()
                 .exceptionHandling().accessDeniedPage("/access_denied");
 
@@ -51,14 +51,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
-//        auth.inMemoryAuthentication()
-//                .withUser("kostadin.mishev")
-//                .password(passwordEncoder.encode("km"))
-//                .authorities("ROLE_USER")
-//                .and()
-//                .withUser("admin")
-//                .password(passwordEncoder.encode("admin"))
-//                .authorities("ROLE_ADMIN");
         auth.authenticationProvider(authenticationProvider);
     }
 

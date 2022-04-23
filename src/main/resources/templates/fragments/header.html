@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item m-auto">
-                        <a class="nav-link active" href="/tattoos">Products</a>
+                        <a class="nav-link active" href="/tattoos">Tattoos</a>
                     </li>
                     <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">
                         <a class="nav-link active" href="/categories">Categories</a>
@@ -52,12 +52,12 @@
                         </a>
                     </li>
                     <li class="nav-item" >
-                        <a class="btn btn-light btn-sm ml-3" href="/logout" sec:authorize="isAuthenticated()" style="background: darkred; color: aliceblue; border: 1px solid #7a1521">
+                        <a class="btn btn-light btn-sm ml-3" href="/logoutt" sec:authorize="isAuthenticated()" style="background: darkred; color: aliceblue; border: 1px solid #7a1521">
                             <i class="fa-solid fa-arrow-right-to-bracket" style="color: navajowhite" ></i> Logout
                         </a>
                     </li>
                     <li class="nav-item" >
-                        <a class="btn btn-light btn-sm ml-3" href="/login">
+                        <a class="btn btn-light btn-sm ml-3" href="/loginn" sec:authorize="!isAuthenticated()">
                             <i class="fa-solid fa-right-from-bracket" style="color: mediumvioletred"></i> Login
                         </a>
                     </li>

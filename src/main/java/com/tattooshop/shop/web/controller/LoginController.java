@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/loginn")
 public class LoginController {
 
     private final AuthService authService;
@@ -39,7 +39,8 @@ public class LoginController {
         catch (InvalidUsernameOrPasswordException exception) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
-            return "login";
+            model.addAttribute("bodyContent", "login");
+            return "master-template";
         }
     }
 }
