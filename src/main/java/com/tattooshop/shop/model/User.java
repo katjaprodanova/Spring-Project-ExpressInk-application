@@ -24,11 +24,11 @@ public class User implements UserDetails {
 
     private String surname;
 
-    @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
-    private List<Tattoo> tattoosMade;
+    /*@OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
+    private List<Tattoo> tattoosMade;*/
 
-   /* @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Favorites> favorites;*/
+   @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Favorites> favorites;
 
    /* @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<ScheduledTattoos> scheduledTattoos;*/
@@ -52,8 +52,8 @@ public class User implements UserDetails {
         this.name = name;
         this.surname = surname;
         this.role = role;
-        this.tattoosMade = new ArrayList<>();
-        //this.favorites = new ArrayList<>();
+        //this.tattoosMade = new ArrayList<>();
+        this.favorites = new ArrayList<>();
     }
 
     @Override

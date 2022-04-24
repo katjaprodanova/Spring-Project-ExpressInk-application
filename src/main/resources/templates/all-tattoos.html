@@ -1,0 +1,81 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">ExpressInk Tattoo Shop</h1>
+            <h3 class="jumbotron-heading">All tattoos</h3>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12" th:if="${tattoos.size() > 0}">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Tattoo name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Category</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="tattoo : ${tattoos}" class="tattoo">
+                            <td th:text="${tattoo.getName()}"></td>
+                            <td th:text="${tattoo.getPrice()}"></td>
+                            <td th:text="${tattoo.getArtist() != null}
+                            ? ${tattoo.getArtist().getName()} : 'No Artist'"></td>
+                            <td th:text="${tattoo.getCategory() != null}
+                            ? ${tattoo.getCategory().getName()} : 'No Category'"></td>
+                            <td class="text-right">
+                                <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <form th:action="@{'/tattoos/delete/{id}' (id=${tattoo.getId()})}"
+                                          th:method="DELETE">
+                                        <button type="submit"
+                                                class="btn btn-sm btn-danger delete-tattoo">
+                                            <i class="fa fa-trash">Delete</i>
+                                        </button>
+                                    </form>
+                                </th:block>
+                                <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <a th:href="@{'/tattoos/edit-form/{id}' (id=${tattoo.getId()})}"
+                                       class="btn btn-sm btn-info tattoo">
+                                        <i class="fa-solid fa-pencil">Edit</i>
+                                    </a>
+                                </th:block>
+                                <form th:action="@{'/favorites/add-tattoo/{id}' (id=${tattoo.getId()})}"
+                                      th:method="POST"
+                                      sec:authorize="isAuthenticated()">
+                                    <button type="submit"
+                                            class="btn btn-sm btn-warning cart-product">
+                                        <i class="fa-solid fa-heart" style="color: red"></i>Add to favorites</i>
+                                    </button>
+                                </form>
+
+                                <form th:action="@{'/scheduled/add-tattoo/{id}' (id=${tattoo.getId()})}"
+                                      th:method="POST"
+                                      sec:authorize="isAuthenticated()">
+                                    <button type="submit"
+                                            class="btn btn-sm btn-light cart-product">
+                                        <i class="fa-solid fa-calendar-day" style="color: blue"></i> Schedule
+                                    </button>
+                                </form>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a href="/tattoos/add-form" class="btn btn-block btn-dark add-tattoo-btn">
+                            Add new tattoo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

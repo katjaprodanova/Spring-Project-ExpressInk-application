@@ -14,10 +14,10 @@ public class ScheduledTattoos {
     @Id
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
-    @OneToMany
+    @ManyToMany
     private List<Tattoo> selectedTattoos;
 
     private LocalDateTime dateTime;

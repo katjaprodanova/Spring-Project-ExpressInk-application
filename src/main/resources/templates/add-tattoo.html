@@ -1,0 +1,86 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">ADD A NEW TATTOO</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/tattoos/add" method="POST">
+                    <input id="id" type="hidden" name="id" th:value="(${tattoo} != null ? ${tattoo.getId()} : '')">
+                    <div class="form-group">
+                        <label for="name">Tattoo name</label>
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               th:value="(${tattoo} != null ? ${tattoo.getName()} : '')"
+                               required
+                               placeholder="Enter tattoo name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tattoo Description</label>
+                        <input type="textarea"
+                               class="form-control"
+                               id="description"
+                               name="name"
+                               th:value="(${tattoo} != null ? ${tattoo.getDescription()} : '')"
+                               required
+                               placeholder="Enter tattoo description">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text"
+                               class="form-control"
+                               id="price"
+                               name="price"
+                               th:value="(${tattoo} != null ? ${tattoo.getPrice()} : '')"
+                               placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category" class="form-control">
+                            <option th:if="${tattoo} != null"
+                                    th:selected="${tattoo.getCategory() != null &&
+                                tattoo.getCategory().getId() == cat.getId()}"
+                                    th:each="cat : ${categories}"
+                                    th:value="${cat.getId()}"
+                                    th:text="${cat.getName()}">
+                            </option>
+                            <option th:if="${tattoo} == null"
+                                    th:each="cat : ${categories}"
+                                    th:value="${cat.getId()}"
+                                    th:text="${cat.getName()}">
+                            </option>
+                        </select>
+                    </div>
+
+                   <!-- <div class="form-group">
+                        <label>Artist</label>
+                        <select name="category" class="form-control">
+                            <option th:if="${tattoo} != null"
+                                    th:selected="${tattoo.getArtist() != null &&
+                                tattoo.getArtist().getId() == artist.getId()}"
+                                    th:each="artist : ${artists}"
+                                    th:value="${artist.getId()}"
+                                    th:text="${artist.getName()}">
+                            </option>
+                            <option th:if="${tattoo} == null"
+                                    th:each="artist : ${artists}"
+                                    th:value="${artist.getId()}"
+                                    th:text="${artist.getName()}">
+                            </option>
+                        </select>
+                    </div>-->
+
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                    <a type="button" class="btn btn-primary" href="/tattoos">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>>

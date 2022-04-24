@@ -14,7 +14,7 @@ public class Favorites {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
     @ManyToMany
