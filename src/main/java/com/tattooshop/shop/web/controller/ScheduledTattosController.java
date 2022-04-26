@@ -29,7 +29,7 @@
 //            model.addAttribute("error", error);
 //        }
 //        String username = req.getRemoteUser();
-//        ShoppingCart shoppingCart = this.scheduledTattoosService.;
+//        ScheduledTattoos scheduledTattoos = this.scheduledTattoosService.findByUser(this.us);
 //        model.addAttribute("products", this.shoppingCartService.listAllProductsInShoppingCart(shoppingCart.getId()));
 //        model.addAttribute("bodyContent", "shopping-cart");
 //        return "master-template";

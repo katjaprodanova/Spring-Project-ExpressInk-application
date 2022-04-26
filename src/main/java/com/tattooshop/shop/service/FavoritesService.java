@@ -10,4 +10,5 @@ public interface FavoritesService {
     List<Tattoo> listAllTattoosInFavorites(Long favoritesId);
     Favorites getActiveFavorites(String username);
     Favorites addTattooToFavorites(String username, Long tattooId);
+    void deleteById(Long id);
 }

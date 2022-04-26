@@ -63,4 +63,9 @@ public class FavoritesServiceImpl implements FavoritesService {
         activeFavorite.getTattoos().add(tattoo);
         return this.favoritesRepository.save(activeFavorite);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        this.favoritesRepository.deleteById(id);
+    }
 }

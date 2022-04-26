@@ -31,7 +31,18 @@
                             <td th:text="${tattoo.getDescription()}"></td>
                             <td th:text="${tattoo.getPrice()}"></td>
                             <td th:text="${tattoo.getCategory() != null} ? ${tattoo.getCategory().getName()} : 'No Category'"></td>
+
+                            <td>
+                        <form th:action="@{'delete-fav/{id}' (id=${tattoo.getId()})}"
+                              th:method="DELETE">
+                            <button type="submit"
+                                    class="btn btn-sm btn-danger delete-product">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                            </td>
                         </tr>
+
                         </tbody>
                     </table>
                 </div>

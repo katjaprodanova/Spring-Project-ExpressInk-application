@@ -16,9 +16,9 @@
                     <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">
                         <a class="nav-link active" href="/categories">Categories</a>
                     </li>
-                    <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a class="nav-link active" href="/scheduled">Scheduled</a>
-                    </li>
+<!--                    <li class="nav-item m-auto" sec:authorize="hasRole('ROLE_ADMIN')">-->
+<!--                        <a class="nav-link active" href="/scheduled">Scheduled</a>-->
+<!--                    </li>-->
                 </ul>
 
 
@@ -43,8 +43,8 @@
                         </a>
                     </li>
                     <li class="nav-item" >
-                        <a class="btn btn-sm ml-3" sec:authorize="isAuthenticated()" href="/shopping-cart" style="background: #edabb3; color: darkred; border: 1px solid #7a1521">
-                            <i class="fa-solid fa-calendar-day" style="color: mediumvioletred"></i>  Scheduled
+                        <a class="btn btn-sm ml-3" sec:authorize="isAuthenticated()" href="/artists" style="background: #edabb3; color: darkred; border: 1px solid #7a1521">
+                            <i class="fa-solid fa-earth-americas" style="color: mediumvioletred"></i> Artists
                         </a>
                     </li>
                     <li class="nav-item" >

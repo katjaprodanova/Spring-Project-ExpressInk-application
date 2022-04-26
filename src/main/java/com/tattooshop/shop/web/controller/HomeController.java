@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping
     public String getHomePage(Model model) {
-        model.addAttribute("bodyContent", "home");
+        model.addAttribute("bodyContent", "homehome");
         return "master-template";
     }
 

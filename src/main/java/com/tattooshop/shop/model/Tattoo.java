@@ -13,6 +13,7 @@ public class Tattoo {
     private Long id;
 
     private String name;
+    private String imgUrl;
 
     @Column(length = 4000)
     private String description;
@@ -28,12 +29,22 @@ public class Tattoo {
     public Tattoo() {
     }
 
+    public Tattoo(String name, String description, String imgUrl, Double price, Category category, User artist) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.artist = artist;
+        this.imgUrl=imgUrl;
+    }
+
     public Tattoo(String name, String description, Double price, Category category, User artist) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
         this.artist = artist;
+       // this.imgUrl=imgUrl;
     }
 }
 

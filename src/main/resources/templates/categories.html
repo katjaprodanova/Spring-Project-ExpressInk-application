@@ -1,0 +1,44 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h3 class="jumbotron-heading">All Artists</h3>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12" th:if="${categories.size() > 0}">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Categogry</th>
+                            <th scope="col">  </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="category : ${categories}" class="artist">
+                            <td th:text="${category.getId()}"></td>
+                            <td th:text="${category.getName()}"></td>
+                            <td>
+
+<!--                                <form th:action="@{'/appointment/add-tattoo/{id}' (id=${artist.getUsername()})}"-->
+<!--                                      th:method="POST"-->
+<!--                                      sec:authorize="isAuthenticated()">-->
+<!--                                    <button type="submit"-->
+<!--                                            class="btn btn-sm btn-light cart-product">-->
+<!--                                        <i class="fa-solid fa-calendar-day" style="color: blue"></i> Schedule-->
+<!--                                    </button>-->
+<!--                                </form>-->
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

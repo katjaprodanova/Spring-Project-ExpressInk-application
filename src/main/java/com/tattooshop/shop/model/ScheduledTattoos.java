@@ -17,17 +17,17 @@ public class ScheduledTattoos {
     @ManyToOne
     private User user;
 
-    @ManyToMany
-    private List<Tattoo> selectedTattoos;
+    @OneToOne
+    private Tattoo selectedTattoo;
 
     private LocalDateTime dateTime;
 
     public ScheduledTattoos() {
     }
 
-    public ScheduledTattoos(User user, LocalDateTime dateTime) {
+    public ScheduledTattoos(User user, Tattoo selectedTattoo,LocalDateTime dateTime) {
         this.user = user;
-        this.selectedTattoos = new ArrayList<>();
+        this.selectedTattoo = selectedTattoo;
         this.dateTime = dateTime;
     }
 }

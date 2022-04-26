@@ -23,7 +23,7 @@
                             <td th:text="${artist.getSurname()}"></td>
                             <td>
 
-                                <form th:action="@{'/scheduled/add-tattoo/{id}' (id=${artist.getUsername()})}"
+                                <form th:action="@{'/appointment/add-tattoo/{id}' (id=${artist.getUsername()})}"
                                       th:method="POST"
                                       sec:authorize="isAuthenticated()">
                                     <button type="submit"
