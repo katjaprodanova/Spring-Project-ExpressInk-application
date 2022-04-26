@@ -30,7 +30,7 @@
                             <td class="text-right">
                                 <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                                     <form th:action="@{'/tattoos/delete/{id}' (id=${tattoo.getId()})}"
-                                          th:method="DELETE">
+                                          th:method="POST">
                                         <button type="submit"
                                                 class="btn btn-sm btn-danger delete-tattoo">
                                             <i class="fa fa-trash">Delete</i>

@@ -1,7 +1,8 @@
 <header xmlns:th="http://www.thymeleaf.org">
     <nav class="navbar navbar-expand-md navbar-dark bg-danger">
         <div class="container">
-            <a class="navbar-brand" href="/">Express Ink</a>
+            <i class="fa-solid fa-crown">
+            <a class="navbar-brand" href="/">Express Ink</a> </i>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,6 +60,12 @@
                     <li class="nav-item" >
                         <a class="btn btn-light btn-sm ml-3" href="/loginn" sec:authorize="!isAuthenticated()">
                             <i class="fa-solid fa-right-from-bracket" style="color: mediumvioletred"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="btn btn-light btn-sm ml-3" href="/register" sec:authorize="!isAuthenticated()">
+                            <i class="fa-solid fa-circle-user" style="color: mediumvioletred"></i> Register
+
                         </a>
                     </li>
 

@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <form action="/tattoos/add" method="POST">
+                <form action="/tattoos/add" method="post">
                     <input id="id" type="hidden" name="id" th:value="(${tattoo} != null ? ${tattoo.getId()} : '')">
                     <div class="form-group">
                         <label for="name">Tattoo name</label>
@@ -22,17 +22,17 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Tattoo Description</label>
-                        <input type="textarea"
+                        <input type="text"
                                class="form-control"
                                id="description"
-                               name="name"
+                               name="description"
                                th:value="(${tattoo} != null ? ${tattoo.getDescription()} : '')"
                                required
                                placeholder="Enter tattoo description">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text"
+                        <input type="number"
                                class="form-control"
                                id="price"
                                name="price"

@@ -74,5 +74,7 @@ public class TattooServiceImpl implements TattooService {
     @Override
     public void deleteById(Long tattooId) {
 
+        this.tattooRepository.deleteById(tattooId);
+
     }
 }

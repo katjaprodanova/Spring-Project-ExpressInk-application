@@ -37,14 +37,14 @@ public class FavoritesController {
         return "master-template";
     }
 
-    @PostMapping("/add-product/{id}")
-    public String addProductToShoppingCart(@PathVariable Long id, HttpServletRequest req, Authentication authentication) {
+    @PostMapping("/add-tattoo/{id}")
+    public String addTattooToFavs(@PathVariable Long id, HttpServletRequest req, Authentication authentication) {
         try {
-            User user = (User) authentication.getPrincipal();
-            this.favoritesService.addTattooToFavorites(user.getUsername(), id);
-            return "redirect:/shopping-cart";
+           // User user = (User) authentication.getPrincipal();
+            this.favoritesService.addTattooToFavorites(req.getRemoteUser(), id);
+            return "redirect:/favorites";
         } catch (RuntimeException exception) {
-            return "redirect:/shopping-cart?error=" + exception.getMessage();
+            return "redirect:/favorites?error=" + exception.getMessage();
         }
     }
 

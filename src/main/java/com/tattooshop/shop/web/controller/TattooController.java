@@ -1,16 +1,22 @@
 package com.tattooshop.shop.web.controller;
 
 import com.tattooshop.shop.model.Category;
+import com.tattooshop.shop.model.Role;
 import com.tattooshop.shop.model.Tattoo;
 import com.tattooshop.shop.model.User;
+import com.tattooshop.shop.model.exceptions.TattooNotFoundException;
+import com.tattooshop.shop.repository.TattooRepository;
 import com.tattooshop.shop.service.CategoryService;
 import com.tattooshop.shop.service.TattooService;
 import com.tattooshop.shop.service.UserService;
+import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -18,11 +24,13 @@ import java.util.List;
 public class TattooController {
 
     private final TattooService tattooService;
+    private final TattooRepository tattooRepository;
     private final CategoryService categoryService;
     private final UserService userService;
 
-    public TattooController(TattooService tattooService, CategoryService categoryService,UserService userService) {
+    public TattooController(TattooService tattooService,TattooRepository tattooRepository, CategoryService categoryService,UserService userService) {
         this.tattooService = tattooService;
+        this.tattooRepository=tattooRepository;
         this.categoryService = categoryService;
         this.userService=userService;
     }
@@ -54,35 +62,44 @@ public class TattooController {
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam Double price,
-            @RequestParam Long category
+            @RequestParam Long category,
+            HttpServletRequest http
            // @RequestParam String artist
             ) {
         if (id != null) {
-            this.tattooService.edit(id, name,description, price, category, "artist");
+            this.tattooService.edit(id, name,description, price, category, http.getRemoteUser());
         } else {
-            this.tattooService.save(name,description, price, category, "artist");
+            this.tattooService.save(name,description, price, category, http.getRemoteUser());
         }
         return "redirect:/tattoos";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
-        this.tattooService.deleteById(id);
+    @PostMapping("/delete/{id}")
+    public String deleteTattoo(@PathVariable Long id) {
+        this.tattooRepository.deleteById(id);
         return "redirect:/tattoos";
     }
 
     @GetMapping("/edit-form/{id}")
     public String editTattooForm(@PathVariable Long id, Model model) {
         if (this.tattooService.findById(id).isPresent()) {
-            Tattoo tattoo = this.tattooService.findById(id).get();
+            Tattoo tattoo = this.tattooService.findById(id).orElseThrow(()-> new TattooNotFoundException(id));
             List<Category> categories = this.categoryService.listCategories();
-            List<User> artists = this.userService.findAll();
+//            List<User> artists = this.userService.findAll();
             model.addAttribute("categories", categories);
-            model.addAttribute("artists",artists);
+//            model.addAttribute("artists",artists);
             model.addAttribute("tattoo", tattoo);
             model.addAttribute("bodyContent", "add-tattoo");
             return "master-template";
         }
         return "redirect:/tattoos?error=TattooNotFound";
+    }
+    @GetMapping("/artistsss")
+    public String getArtists(Model model){
+        List<User> userList = this.userService.findUserByRole(Role.ROLE_ARTIST);
+        model.addAttribute("artists",userList);
+        model.addAttribute("bodyContent","artists");
+        return "master-template";
+
     }
 }
