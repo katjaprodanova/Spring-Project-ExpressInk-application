@@ -1,6 +1,8 @@
 package com.tattooshop.shop.model;
 
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class Favorites {
     private User user;
 
     @ManyToMany
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Tattoo> tattoos;
 
     public Favorites(){

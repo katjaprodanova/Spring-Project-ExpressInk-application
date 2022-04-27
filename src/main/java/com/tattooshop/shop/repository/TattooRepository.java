@@ -14,5 +14,7 @@ public interface TattooRepository extends JpaRepository<Tattoo,Long> {
     Optional<Tattoo> findByCategory(Category category);
     Optional<Tattoo> findByArtist(User artist);
     void deleteByName(String name);
-  //  void deleteById(Long tattooId);
+
+
+    //  void deleteById(Long tattooId);
 }

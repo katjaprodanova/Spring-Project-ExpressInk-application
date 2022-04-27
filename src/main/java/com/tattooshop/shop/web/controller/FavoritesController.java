@@ -48,7 +48,7 @@ public class FavoritesController {
         }
     }
 
-    @DeleteMapping("delete-fav/{id}")
+    @PostMapping("/delete-fav/{id}")
     public String deleteTattooFromFav(@PathVariable Long id, HttpServletRequest req){
          this.favoritesService.deleteById(id);
          return "redirect:/favorites";
