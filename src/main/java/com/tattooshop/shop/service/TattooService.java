@@ -15,9 +15,9 @@ public interface TattooService {
 
     Optional<Tattoo> findByName(String tattooName);
 
-    Optional<Tattoo> save(String name, String description, Double price, Long category, String artist);
+    Optional<Tattoo> save(String name, String description, Double price, Long category, String artist,String imgUrl);
 
-    Optional<Tattoo> edit(Long id, String name, String description, Double price, Long category, String artist);
+    Optional<Tattoo> edit(Long id, String name, String description, Double price, Long category, String artist,String imgUrl);
 
     void deleteById(Long tattooId);
 }

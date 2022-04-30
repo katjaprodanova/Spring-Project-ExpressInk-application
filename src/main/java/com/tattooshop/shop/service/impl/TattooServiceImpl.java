@@ -47,16 +47,16 @@ public class TattooServiceImpl implements TattooService {
 
     @Override
     @Transactional
-    public Optional<Tattoo> save(String name, String description, Double price, Long category, String artist) {
+    public Optional<Tattoo> save(String name, String description, Double price, Long category, String artist,String imgUrl) {
        Category category1 = this.categoryRepository.findById(category).orElseThrow(()->new CategoryNotFoundException(category));
        User artist1 = this.userRepository.findById(artist).orElseThrow(()->new UserNotFoundException(artist));
-        Tattoo tattoo = new Tattoo(name,description,price,category1,artist1);
+        Tattoo tattoo = new Tattoo(name,description,price,category1,artist1,imgUrl);
         return Optional.of(this.tattooRepository.save(tattoo));
     }
 
     @Override
     @Transactional
-    public Optional<Tattoo> edit(Long id, String name, String description, Double price, Long category, String artist) {
+    public Optional<Tattoo> edit(Long id, String name, String description, Double price, Long category, String artist,String imgUrl) {
         Tattoo tattoo = tattooRepository.findById(id).orElseThrow(()-> new TattooNotFoundException(id));
 
         Category category1 = this.categoryRepository.findById(category).orElseThrow(()->new CategoryNotFoundException(category));
@@ -67,6 +67,8 @@ public class TattooServiceImpl implements TattooService {
         tattoo.setPrice(price);
         tattoo.setCategory(category1);
         tattoo.setArtist(artist1);
+        tattoo.setImgUrl(imgUrl);
+
 
         return Optional.of(this.tattooRepository.save(tattoo));
     }

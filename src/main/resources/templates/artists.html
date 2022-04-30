@@ -4,8 +4,35 @@
             <h3 class="jumbotron-heading">All Artists</h3>
         </div>
     </section>
+    <script>
+
+
+        function addSchedulerCode() {
+
+            var x = document.getElementById("scheduled");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function myFunction() {
+            addSchedulerCode();
+            alert("Success!");
+        }
+    </script>
 
     <div class="container mb-4">
+        <h6 id="scheduled" style="display: none; color: crimson">
+            Hello, <th:block th:if="${#request.getRemoteUser() != null}"
+                             th:text="${#request.getRemoteUser()}"></th:block> ! Please choose a date:
+              <span id="schedulerSpan" >
+              <input type="text" id="datepicker">
+                                    </span>
+            <button class="btn btn-sm btn-warning ml-3" onclick="myFunction()"> Confirm </button>
+
+        </h6>
         <div class="row">
             <div class="col-12" th:if="${artists.size() > 0}">
                 <div class="table-responsive">
@@ -23,14 +50,14 @@
                             <td th:text="${artist.getSurname()}"></td>
                             <td>
 
-                                <form th:action="@{'/appointment/add-tattoo/{id}' (id=${artist.getUsername()})}"
-                                      th:method="POST"
+                                <span
                                       sec:authorize="isAuthenticated()">
-                                    <button type="submit"
+                                    <button onclick="addSchedulerCode()"
                                             class="btn btn-sm btn-light cart-product">
                                         <i class="fa-solid fa-calendar-day" style="color: blue"></i> Schedule
                                     </button>
-                                </form>
+
+                                </span>
                             </td>
 
                         </tr>

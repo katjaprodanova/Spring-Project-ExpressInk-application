@@ -27,4 +27,10 @@ public class ArtistController {
         model.addAttribute("bodyContent","artists");
         return "master-template";
     }
+/*
+    @GetMapping("/schedule")
+    public String scheduleAppointmentPage(Model model){
+        model.addAttribute("bodyContent", "")
+
+    }*/
 }

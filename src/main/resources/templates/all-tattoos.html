@@ -1,4 +1,4 @@
-<div xmlns:th="http://www.thymeleaf.org">
+<div xmlns:th="http://www.thymeleaf.org" >
     <section class="jumbotron text-center">
         <div class="container" style="background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-floral-background_79603-1868.jpg")" >
             <h1 class="jumbotron-heading">ExpressInk Tattoo Shop</h1>
@@ -13,6 +13,7 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
+                            <th scope="col">Image</th>
                             <th scope="col">Tattoo name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Artist</th>
@@ -21,6 +22,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="tattoo : ${tattoos}" class="tattoo">
+                            <td> <img th:src="${tattoo.getImgUrl()}" style="max-width: 110px"></td>
                             <td th:text="${tattoo.getName()}"></td>
                              <td th:text="${tattoo.getPrice()} + ' $'"></td>
 

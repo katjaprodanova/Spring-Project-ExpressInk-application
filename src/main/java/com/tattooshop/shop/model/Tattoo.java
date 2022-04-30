@@ -16,6 +16,7 @@ public class Tattoo {
     private Long id;
 
     private String name;
+    @Column(length = 5000)
     private String imgUrl;
 
     @Column(length = 4000)
@@ -32,7 +33,7 @@ public class Tattoo {
     public Tattoo() {
     }
 
-    public Tattoo(String name, String description, String imgUrl, Double price, Category category, User artist) {
+    public Tattoo(String name, String description, Double price, Category category, User artist,String imgUrl) {
         this.name = name;
         this.description = description;
         this.price = price;

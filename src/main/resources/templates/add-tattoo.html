@@ -31,6 +31,16 @@
                                placeholder="Enter tattoo description">
                     </div>
                     <div class="form-group">
+                        <label for="name">Tattoo Image URL</label>
+                        <input type="text"
+                               class="form-control"
+                               id="imgUrl"
+                               name="imgUrl"
+                               th:value="(${tattoo} != null ? ${tattoo.getImgUrl()} : '')"
+                               required
+                               placeholder="Tattoo image url">
+                    </div>
+                    <div class="form-group">
                         <label for="price">Price</label>
                         <input type="number"
                                class="form-control"

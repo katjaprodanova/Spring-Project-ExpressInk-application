@@ -63,13 +63,14 @@ public class TattooController {
             @RequestParam String description,
             @RequestParam Double price,
             @RequestParam Long category,
+            @RequestParam String imgUrl,
             HttpServletRequest http
            // @RequestParam String artist
             ) {
         if (id != null) {
-            this.tattooService.edit(id, name,description, price, category, http.getRemoteUser());
+            this.tattooService.edit(id, name,description, price, category, http.getRemoteUser(),imgUrl);
         } else {
-            this.tattooService.save(name,description, price, category, http.getRemoteUser());
+            this.tattooService.save(name,description, price, category, http.getRemoteUser(),imgUrl);
         }
         return "redirect:/tattoos";
     }
