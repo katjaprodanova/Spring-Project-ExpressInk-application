@@ -22,7 +22,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="tattoo : ${tattoos}" class="tattoo">
-                            <td> <img th:src="${tattoo.getImgUrl()}" style="max-width: 110px"></td>
+                            <td> <img th:src="${tattoo.getImgUrl()}" style="max-width: 200px"></td>
                             <td th:text="${tattoo.getName()}"></td>
                              <td th:text="${tattoo.getPrice()} + ' $'"></td>
 

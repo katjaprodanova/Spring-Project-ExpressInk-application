@@ -90,7 +90,7 @@ public class TattooController {
             model.addAttribute("categories", categories);
 //            model.addAttribute("artists",artists);
             model.addAttribute("tattoo", tattoo);
-            model.addAttribute("bodyContent", "add-tattoo");
+            model.addAttribute("bodyContent", "edit-tattoo");
             return "master-template";
         }
         return "redirect:/tattoos?error=TattooNotFound";

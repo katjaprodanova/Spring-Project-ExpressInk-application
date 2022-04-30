@@ -1,7 +1,7 @@
 <div xmlns:th="http://www.thymeleaf.org" id="app-6">
-    <section class="jumbotron text-center">
+    <section >
         <div class="container">
-            <h1 class="jumbotron-heading">ADD A NEW TATTOO</h1>
+            <div class="alert alert-dark mt-3" role="alert" >Editing an existing tatooo</div>
         </div>
     </section>
 
@@ -19,7 +19,7 @@
                                th:value="(${tattoo} != null ? ${tattoo.getName()} : '')"
                                required
                                placeholder="Enter tattoo name"
-                               v-model="tattooName">
+                               >
                     </div>
                     <div class="form-group">
                         <label for="description">Tattoo Description</label>
@@ -30,7 +30,7 @@
                                th:value="(${tattoo} != null ? ${tattoo.getDescription()} : '')"
                                required
                                placeholder="Enter tattoo description"
-                               v-model="tattooDesc">
+                               >
                     </div>
                     <div class="form-group">
                         <label for="imgUrl">Tattoo Image URL</label>
@@ -50,7 +50,7 @@
                                name="price"
                                th:value="(${tattoo} != null ? ${tattoo.getPrice()} : '')"
                                placeholder="Price"
-                               v-model="tattooPrice">
+                               >
                     </div>
                     <div class="form-group">
                         <label>Category</label>
@@ -70,23 +70,23 @@
                         </select>
                     </div>
 
-                   <!-- <div class="form-group">
-                        <label>Artist</label>
-                        <select name="category" class="form-control">
-                            <option th:if="${tattoo} != null"
-                                    th:selected="${tattoo.getArtist() != null &&
-                                tattoo.getArtist().getId() == artist.getId()}"
-                                    th:each="artist : ${artists}"
-                                    th:value="${artist.getId()}"
-                                    th:text="${artist.getName()}">
-                            </option>
-                            <option th:if="${tattoo} == null"
-                                    th:each="artist : ${artists}"
-                                    th:value="${artist.getId()}"
-                                    th:text="${artist.getName()}">
-                            </option>
-                        </select>
-                    </div>-->
+                    <!-- <div class="form-group">
+                         <label>Artist</label>
+                         <select name="category" class="form-control">
+                             <option th:if="${tattoo} != null"
+                                     th:selected="${tattoo.getArtist() != null &&
+                                 tattoo.getArtist().getId() == artist.getId()}"
+                                     th:each="artist : ${artists}"
+                                     th:value="${artist.getId()}"
+                                     th:text="${artist.getName()}">
+                             </option>
+                             <option th:if="${tattoo} == null"
+                                     th:each="artist : ${artists}"
+                                     th:value="${artist.getId()}"
+                                     th:text="${artist.getName()}">
+                             </option>
+                         </select>
+                     </div>-->
 
                     <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                     <a type="button" class="btn btn-primary" href="/tattoos">Back</a>
@@ -100,31 +100,18 @@
 
             </div>
 
-            <div class="col-5" style="background-color: darkgrey; border-radius: 20%">
+            <div class="col-5">
+
+                <img th:src="${tattoo.getImgUrl()}" style="max-width: 300px">
                 <br>
-                <p class="text-danger text-center "> This is your tattoo preview: </p>
-                <br>
-                <span> Tattoo name : </span>
-                <h3> {{tattooName}}</h3>
-                <br>
-                <span> Tattoo Description : </span>
-                <h4> {{tattooDesc}}</h4>
-                <br>
-                <span> Tattoo Price : </span>
-                <h4> {{tattooPrice}} $ </h4>
+                <hr>
+                <h2 th:text="${tattoo.getName()}"> </h2><hr>
+                <p th:text="${tattoo.getDescription()}"></p>
+                <hr>
             </div>
+
+
         </div>
     </div>
 
 </div>
-
-<script>
-    var app6 = new Vue({
-        el: '#app-6',
-        data: {
-            tattooName: '',
-            tattooDesc: '',
-            tattooPrice: 0
-        }
-    })
-</script>

@@ -23,10 +23,12 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
+
                             <th scope="col">Tattoo</th>
                             <th scope="col">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Image</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,7 +37,7 @@
                             <td th:text="${tattoo.getDescription()}"></td>
                             <td th:text="${tattoo.getPrice()}"></td>
                             <td th:text="${tattoo.getCategory() != null} ? ${tattoo.getCategory().getName()} : 'No Category'"></td>
-
+                            <td> <img th:src="${tattoo.getImgUrl()}" style="max-width: 100px"></td>
                             <td>
                         <form th:action="@{'/delete-fav/{id}' (id=${tattoo.getId()})}"
                               th:method="POST">
