@@ -31,7 +31,27 @@ ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4 +1p" crossorigin="
 <script>
 
     $( function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({numberOfMonths:3});
+    } );
+
+    $( function() {
+        var availableTags = [
+            "animal theme tattooos",
+            "apple Tattoos",
+            "basic tattoos",
+            "C",
+            "letter tattoos",
+            "Small tattoos",
+            "tattoos for girls",
+            "girly tattoos",
+            "flowers",
+            "artists",
+            "big tattoos",
+            "schedule artists",
+        ];
+        $( "#tags" ).autocomplete({
+            source: availableTags
+        });
     } );
 </script>
 </body>

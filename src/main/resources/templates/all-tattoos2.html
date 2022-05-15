@@ -1,6 +1,6 @@
 
 <div xmlns:th="http://www.thymeleaf.org" >
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center" style="height: 160px">
         <div class="container" >
             <h3 class="jumbotron-heading">All tattoos</h3>
         </div>
@@ -17,12 +17,12 @@
     </section>
 
     <div class="container mb-4">
-        <div class="row">
+
             <div class="row" th:if="${tattoos.size() > 0}">
 
 
-                        <div th:each="tattoo : ${tattoos}" class="col-md-4 mb-3 tattoo">
-                            <div class="card" style="width: 18rem;">
+                        <div th:each="tattoo : ${tattoos}" class="col-4 mb-3 tattoo">
+                            <div class="card" style="background-color: #f5e1df">
                                 <img th:src="${tattoo.getImgUrl()}"  class=" ms-5 card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">
@@ -38,7 +38,7 @@
                                     <b>Category:</b>
                                     <td th:text="${tattoo.getCategory() != null}
                             ? ${tattoo.getCategory().getName()} : 'No Category'"></td>
-                                    <p th:text="${tattoo.getDescription()}" class="card-text"></p>
+                                    <i> <p th:text="${tattoo.getDescription()}" class="card-text"></p></i>
                                     <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                                         <form th:action="@{'/tattoos/delete/{id}' (id=${tattoo.getId()})}"
                                               th:method="POST">
@@ -69,6 +69,6 @@
 
             </div>
 
-        </div>
+
     </div>
 </div>
