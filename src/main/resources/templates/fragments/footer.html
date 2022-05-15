@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<style>
+    .mylistitem{
+        margin: 3px;
+        width: 15px;
+        text-align: center;
+        text-decoration: none;
+    }
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
 
-</body>
-</html>
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+    }
+
+    .fa-linkedin {
+        background: #007bb5;
+        color: white;
+    }
+
+    .fa-youtube {
+        background: #bb0000;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+
+</style>
+<footer class="text-black-50 mt-xl-5" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>About</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d3518.534746507042!2d21.713595521170713!3d42.13481006547333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m3!3m2!1d42.135846099999995!2d21.7186353!4m0!5e0!3m2!1sen!2smk!4v1652584160420!5m2!1sen!2smk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Visit our social links</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li class="mylistitem" style="display: inline"><a href="#" class="fa fa-facebook"></a></li>
+                    <li class="mylistitem"  style="display: inline"><a href="#" class="fa fa-twitter"></a></li>
+                    <li class="mylistitem" style="display: inline"><a href="#" class="fa fa-google"></a></li>
+                    <li class="mylistitem" style="display: inline"><a href="#" class="fa fa-linkedin"></a></li>
+                    <li  class="mylistitem" style="display: inline"><a href="#" class="fa fa-youtube"></a></li>
+                    <li class="mylistitem" style="display: inline"><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-home mr-2"></i> My company</li>
+                    <li><i class="fa fa-envelope mr-2"></i> email@example.com</li>
+                    <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
+                    <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

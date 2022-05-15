@@ -43,7 +43,7 @@ public class TattooController {
         }
         List<Tattoo> tattoos = this.tattooService.findAll();
         model.addAttribute("tattoos", tattoos);
-        model.addAttribute("bodyContent", "all-tattoos");
+        model.addAttribute("bodyContent", "all-tattoos2");
         return "master-template";
     }
 
