@@ -1,5 +1,6 @@
 # Express Ink - Tattoo Shop 
 Express Ink, is an e-commerce style application, but specifically tailored for tattoo lovers and tattoo artists. It allows clients to browse through a tattoo collection, as well as tattoo artists. Everyone who has registered as an artist, will automatically be displayed in the artists tab.
+  - Technologies used: Java SpringBoot, PostgreSQL, Bootstrap, Thymeleaf
 
 ## Features
 ### Running the application
